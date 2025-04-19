@@ -1,0 +1,28 @@
+.toolbar {
+  height: 40px;
+  padding: 0 16px;
+  background-color: white;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  box-shadow: 0 4px 5px gray;
+  z-index: 1;
+  &__btn {
+    padding: 4px;
+    border: 2px solid black;
+    color: black;
+    background-color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: all ease 0.3s;
+    cursor: pointer;
+    &--push-left {
+      margin-left: auto;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
