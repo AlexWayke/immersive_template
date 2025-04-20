@@ -46,8 +46,15 @@ function Toolbar() {
         Line
       </button>
       <input onChange={(e) => changeColor(e)} type="color" />
-      <button className="toolbar__btn toolbar__btn--push-left">Undo</button>
-      <button className="toolbar__btn">Redo</button>
+      <button
+        className="toolbar__btn toolbar__btn--push-left"
+        onClick={() => canvasState.undo()}
+      >
+        Undo
+      </button>
+      <button className="toolbar__btn" onClick={() => canvasState.redo()}>
+        Redo
+      </button>
       <button className="toolbar__btn">Save</button>
     </div>
   );
