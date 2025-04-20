@@ -17,7 +17,15 @@ function Toolbar() {
     <div className="toolbar">
       <button
         className="toolbar__btn"
-        onClick={() => toolState.setTool(new Brush(canvasState.canvas))}
+        onClick={() =>
+          toolState.setTool(
+            new Brush(
+              canvasState.canvas,
+              canvasState.socket,
+              canvasState.sessionId,
+            ),
+          )
+        }
       >
         Pen
       </button>

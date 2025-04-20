@@ -29,6 +29,7 @@ const Canvas = observer(() => {
   const drawHandler = (msg) => {
     const figure = msg.figure;
     const ctx = canvasRef.current?.getContext("2d");
+    console.log("msg.figure", msg.figure);
     switch (figure.type) {
       case "brush":
         if (ctx) {
@@ -48,8 +49,8 @@ const Canvas = observer(() => {
 
       canvasState.setSocket(socket);
       canvasState.setSessionId(params.id ?? "");
-      console.log("socket", socket);
       toolState.setTool(new Brush(canvasRef.current, socket, params.id));
+
       socket.onopen = () => {
         socket.send(
           JSON.stringify({
@@ -61,6 +62,7 @@ const Canvas = observer(() => {
         setModal(false);
       };
       socket.onmessage = (e) => {
+        console.log("check");
         const msg = JSON.parse(e.data);
         switch (msg.method) {
           case "connection":
